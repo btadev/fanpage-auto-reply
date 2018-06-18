@@ -40,7 +40,7 @@ class Check
 	}
 	public function doCheck($dataGraph)
 	{
-		foreach ($dataGraph['data'] as $data) {
+		foreach ($dataGraph as $data) {
 				if(!empty($data['from']['id']))
 				{
 					$this->_userID = $data['from']['id'];
