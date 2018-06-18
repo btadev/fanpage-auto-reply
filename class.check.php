@@ -32,7 +32,15 @@ class Check
 
 		$decode = json_decode($get,JSON_UNESCAPED_UNICODE);
 		if(!empty($decode['data'])){
-			foreach ($decode['data'] as $data) {
+			return $this->docheck($decode['data']);
+	
+		}else{
+			return false;	
+		}
+	}
+	public function doCheck($dataGraph)
+	{
+		foreach ($dataGraph['data'] as $data) {
 				if(!empty($data['from']['id']))
 				{
 					$this->_userID = $data['from']['id'];
@@ -52,10 +60,6 @@ class Check
 					echo "Lỗi !!!";
 				}
 			}
-	
-		}else{
-			return false;	
-		}
 	}
 	public function saveID()
 	{
